@@ -2,6 +2,11 @@ import os
 os.system("cls")
 
 start = input ("¡Bienvenido a Extreme Magic! ¿Quieres hechar un vistazo a nuestro menú disponible? S/N      ").upper()
+while start != "S" and start != "N": 
+    start = input ("¡Bienvenido a Extreme Magic! ¿Quieres hechar un vistazo a nuestro menú disponible? S/N      ").upper()
+    print ("Opción Inválida.") 
+if start == "N":
+    print ("¡Esperamos verte pronto!")
 print ()
 
 carrito = []
@@ -64,9 +69,11 @@ Digite la opción de menú que desea consultar.
 
             else: 
                 print ("Por favor ingrese una opción correcta.")
+                print ()
 
         elif continuar != "S" and continuar != "N": 
             print ("Entrada inválida.")
+            print ()
 
         else: 
             print ("Si desea continuar comprando digite la opción de su preferencia. O bien digite 8 para salir.")
@@ -116,9 +123,11 @@ Digite la opción de menú que desea consultar.
 
             else: 
                 print ("Por favor ingrese una opción correcta.")
+                print ()
 
         elif continuar != "S" and continuar != "N": 
             print ("Entrada inválida.")
+            print ()
 
         else: 
             print ("Si desea continuar comprando digite la opción de su preferencia. O bien digite 8 para salir.")
@@ -168,9 +177,11 @@ Digite la opción de menú que desea consultar.
 
             else: 
                 print ("Por favor ingrese una opción correcta.")
+                print ()
 
         elif continuar != "S" and continuar != "N": 
             print ("Entrada inválida.")
+            print ()
 
         else: 
             print ("Si desea continuar comprando digite la opción de su preferencia. O bien digite 8 para salir.")
@@ -220,9 +231,11 @@ Digite la opción de menú que desea consultar.
 
             else: 
                 print ("Por favor ingrese una opción correcta.")
+                print ()
 
         elif continuar != "S" and continuar != "N": 
             print ("Entrada inválida.")
+            print ()
 
         else: 
             print ("Si desea continuar comprando digite la opción de su preferencia. O bien digite 8 para salir.")
@@ -271,9 +284,11 @@ Digite la opción de menú que desea consultar.
 
             else: 
                 print ("Por favor ingrese una opción correcta.")
+                print ()
 
         elif continuar != "S" and continuar != "N": 
             print ("Entrada inválida.")
+            print ()
 
         else: 
             print ("Si desea continuar comprando digite la opción de su preferencia. O bien digite 8 para salir.")
@@ -304,6 +319,7 @@ Digite la opción de menú que desea consultar.
     
         elif continuar != "S" and continuar != "N": 
             print ("Entrada inválida.")
+            print ()
 
         else: 
             print ("Si desea continuar comprando digite la opción de su preferencia. O bien digite 8 para salir.")
@@ -311,29 +327,48 @@ Digite la opción de menú que desea consultar.
              
 
     if menu == 7: 
-        MetodoCancelar = input ("¿Desea cancelar con efectivo o con tarjeta?    ").lower()
+        suma = 0
+        for i in CancelarTotal: 
+            suma += i
+
+        MetodoCancelar = input ("Si cancelas con tarjeta obtienes un descuento del 12%. ¿Desea cancelar con tarjeta? S/N   ").upper()
         print ()
-        if MetodoCancelar == "tarjeta":
-            #descuento = CancelarTotal - 0.12
-            #CancelarTotal -= descuento
-            #¿NO PUEDO HACER DESCUENTO?
-            print (carrito)
-            print (f"Monto total a cancelar por su compra {CancelarTotal}")
+        if MetodoCancelar == "S":
+            for i in carrito: 
+                print (f"- {i}")  
+
+            print (f"Total sin descuento aplicado: {suma}")
+            descuento = suma * 0.12
+            suma -= descuento  
+            print (f"Descuento aplicado: {descuento}")
+            print (f"Monto total a cancelar por su compra {suma}")
             print ()
             print ("¡Esperamos verte pronto!")
+            print ()
             exit()
-        elif MetodoCancelar == "efectivo":
-            print (carrito)
-            print (f"Monto total a cancelar por su compra {CancelarTotal}")
+
+        elif MetodoCancelar == "N":
+            for i in carrito: 
+                print (i)  
+            print (f"Monto total a cancelar por su compra {suma}")
             print ()
             print ("¡Esperamos verte pronto!")
+            print ()
             exit()
+            
         else: 
             print ("Entrada inválida.")
+            print ()
         
 
     if menu == 8: 
         print ("¡Esperamos verte pronto!")
+        print ()
         exit()
+
+    else: 
+        print ("Por favor, digita una opción numérica que esté disponible en el menú. ¡Gracias!")
+        print ()
+        
     
 
